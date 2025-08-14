@@ -3,7 +3,7 @@ const { ajoutertache,getTaches,getTacheId,modifierTache,supprimerTache}  = requi
 const router= express.Router()
 const authMiddleware = require('../middlewares/authetimiddleware');
 
-router.use(authMiddleware);
+/*router.use(authMiddleware);*/
 /**ajouter une tache */
 router.post("/", ajoutertache)
 /**recuperer les taches par pagination */
