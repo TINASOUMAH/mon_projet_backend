@@ -28,7 +28,7 @@ const modeltache=new mongoose.Schema({
     createdBy:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"taches",
-        required:true
+        required:false
     },
     assignedto:{
         

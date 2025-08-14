@@ -12,7 +12,7 @@ exports.inscription = async (req, res) => {
     const existe = await Membre.findOne({ email });
     if(existe) return res.status(400).json({ message: 'Email déjà utilisé' });
 
-    const nouveauMembre = new Membre({ nom, email, motDePasse });
+    const nouveauMembre = new Membre({ nom, email, motDePasse ,role});
     await nouveauMembre.save();
 
     const token = creerToken(nouveauMembre);

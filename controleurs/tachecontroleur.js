@@ -5,17 +5,18 @@ const tache = require("../modeles/tachemodel"); // importe ton modèle correctem
 // Ajouter une tâche
 exports.ajoutertache = async (req, res) => {
   try {
-    const { titre, description, priority, status,assigneA } = req.body;
+    const { titre, description, priority, status,assigneA,role} = req.body;
 
     // Ici on simule un utilisateur pour tester sans authentification
     const createdBy = req.user /* req.user.id : "testUserId123"*/;
 
     const newtache = new tache({
       titre,
+      role,
       description,
       priority,
       status,
-      createdBy: req.membre.id,
+      createdBy,
       assigneA
     });
 
