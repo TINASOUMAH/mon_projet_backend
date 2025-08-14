@@ -1,7 +1,7 @@
 const express=require("express")
 const { ajoutertache,getTaches,getTacheId,modifierTache,supprimerTache}  = require("../controleurs/tachecontroleur")
 const router= express.Router()
-const authMiddleware = require('../middlewares/authetiMiddleware');
+const authMiddleware = require('../middlewares/authetimiddleware');
 
 router.use(authMiddleware);
 /**ajouter une tache */
