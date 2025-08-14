@@ -15,19 +15,19 @@ db();
 
 app.use("/api/taches", routetache);
 
-const https = require('https');
+//ANTI-sommeil//
+function antisleep(url){
+  if(!url) return console.error("url render manquande")
+    setInterval(()=>{
+  https.get(url,(res)=>{
+    console.log(`ping à ${url} -status:${res.statuscode}}`)
 
-function pingServer() {
-  https.get('https://ton-nom-de-domaine.onrender.com', (res) => {
-    console.log(`Ping envoyé - statut : ${res.statusCode}`);
-  }).on('error', (err) => {
-    console.error('Erreur de ping :', err.message);
-  });
+  }).on("error",(err)=>{
+    console.error("erreur ping:",err.message)
+  })
+}, 5 * 60 * 1000)
 }
-
-// Ping toutes les 5 minutes
-setInterval(pingServer, 5 * 60 * 1000);
-
+antisleep("https://mon-projet-backend-2.onrender.com/")
 
 app.listen(process.env.PORT, () => {
   console.log(`Le serveur lancé avec succès sur le port : ${process.env.PORT}`);
